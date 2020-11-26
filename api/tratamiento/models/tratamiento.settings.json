@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tratamientos",
+  "info": {
+    "name": "Tratamiento",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "imagen": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "descripcion": {
+      "type": "richtext",
+      "required": true
+    },
+    "categorias": {
+      "via": "tratamientos",
+      "collection": "categorias"
+    }
+  }
+}
